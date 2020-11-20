@@ -19,7 +19,21 @@
 
 
 '''
-n=5 lost= [2,4] reverse = [2,3,5]
+
 def solution(n, lost, reserve):
-    answer = 0
-    return answer
+    count = 0
+
+    lost_real = list(set(lost) - set(reserve))
+    reserve_real = list(set(reserve) - set(lost))
+    lost_real.sort()
+
+    for l in lost_real:
+        if l-1 in reserve_real:
+            reserve_real.remove(l-1)
+            count+=1
+
+        elif l+1 in reserve_real:
+            reserve_real.remove(l+1)
+            count+=1
+
+    return n - len(lost_real) + count
