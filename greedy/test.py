@@ -1,5 +1,3 @@
-number = 1231234
-
-res = [int(x) for x in str(number)]
-res.sort()
-print(res)
+number = [1,2,3,4,5,7,3]
+number.sort()
+print(number)
