@@ -26,4 +26,24 @@ solution(M,K,data)
 n,m,k = map(int, input().split())
 data =list(map(int, input().split()))
 
-data.sort(
+data.sort()
+first = data[n-1]
+second = data[n-2]
+result = 0
+count = 0
+while True :
+
+    for i in range(k):
+        if count == m:
+            break
+        else :
+            count += 1
+            result += first
+
+    if count == m :
+        break
+    else :
+        result += second
+        count += 1
+
+print(result)
