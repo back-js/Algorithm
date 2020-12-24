@@ -1,8 +1,10 @@
-import operator
+import heapq
 
-strings = ['sun', 'bed', 'car']
-n=1
-dict = {string : string[n] for string in strings}
-sdict= sorted(dict.items(), key=operator.itemgetter(1))
+nums = [4, 1, 7, 3, 8, 5]
+heap = []
 
-print(sdict)
+for num in nums:
+  heapq.heappush(heap, (-num, num))  # (우선 순위, 값)
+print(heap)
+while heap:
+  print(heapq.heappop(heap)[1])  # index 1

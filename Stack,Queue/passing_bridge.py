@@ -30,6 +30,8 @@ len(m)+4
 
 """
 
+
+
 from collections import deque
 def solution(bridge_length, weight, truck_weights):
 
