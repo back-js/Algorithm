@@ -1,25 +1,39 @@
-def DFS(start_node):
-    # 1) stack 에 첫 번째 노드 넣으면서 시작
-    stack = [start_node, ]
+def dfs(graph, v, visited):
+    visited[v] = True
+    print(v,end='')
 
-    while True:
-        # 2) stack이 비어있는지 확인
-        if len(stack) == 0:
-            print('All node searched.')
-        return None
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(graph,i,visited)
 
-        # 3) stack에서 맨 위의 노드를 pop
-        node = stack.pop()
+from collections import deque
 
-        # 4) 만약 node가 찾고자 하는 target이라면 서치 중단!
-        if node == TARGET:
-            print('The target found.')
-        return node
+def bfs(graph, start, visited):
+    queue = deque([start])
+    visited[start] = True
 
-        # 5) node의 자식을 expand 해서 children에 저장
-        children = expand(node)
+    while queue:
+        v = queue.popleft()
+        print(v , end= '')
 
-        # 6) children을 stack에 쌓기
-        stack.extend(children)
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
 
-        # 7) 이렇게 target을 찾거나, 전부 탐색해서 stack이 빌 때까지 while문 반복
+
+graph = [
+    [],
+    [2,3,8],
+    [1,7],
+    [1,4,5],
+    [3,5],
+    [3,4],
+    [7],
+    [2,6,8],
+    [1,7]
+]
+
+visited = [False] * 9
+
+bfs(graph,1,visited)
