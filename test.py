@@ -1,4 +1,4 @@
-a = list(map(int, input().split()))
-a_r = list(reversed(a))
-print(a_r)
-print(a)
+S = [1,2,3,4,5,6]
+S.pop()
+print(S)
+print(S[-1])
