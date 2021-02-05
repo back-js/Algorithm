@@ -19,13 +19,25 @@
 
 '''
 N = list(map(int,str(input())))
-print(N)
-
-for i in range(len(N)):
-    if N[i] == 9 :
-        N[i] = 6
 
 r = []
+w = []
+
 for i in range(10):
-    N.count(i)
+    if i == 6 or i == 9 :
+        s = N.count(i)
+        w.append(s)
+
+    else:
+        s = N.count(i)
+        r.append(s)
+if sum(w)%2 == 0 :
+    ww = int(sum(w)/2)
+else :
+    ww = int(sum(w)/2)+1
+
+rr = max(r)
+
+print(max(rr,ww))
+
 
