@@ -1,3 +1,9 @@
-w = ['12123124']
-w[0] = w[0][-1] + w[0][0:-1]
-print(w[0])
+from collections import deque
+
+
+wheel = []
+for i in range(4) :
+    s = deque(list(map(int,input())))
+    wheel.append(s)
+
+print(wheel)

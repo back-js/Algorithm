@@ -43,22 +43,35 @@
 예제 출력 3 
 6
 """
+from collections import deque
+
+
 wheel = []
 for i in range(4) :
-    s = str(input())
+    s = deque(list(map(int,input())))
     wheel.append(s)
 
-c = int(input())
+n = int(input())
 
-for i in range(c):
-    visited = [0]*4
-    a, b = map(int,input().split())
-    def bfs() :
-        visited[a-1] = 1
-        wheel[a-1]
+number = deque()
+for i in range(n):
+    s = list(map(int,input().split(' ')))
+    number.append(s)
 
-res = int(wheel[0][0])*1 + int(wheel[1][0])*2+ int(wheel[2][0])*4 + int(wheel[3][0])*8
-print(res)
+while number :
+    s = number.popleft()
+    a , b = s[0], s[1]
+    a -= 1
+    if wheel[a][6] != wheel[a+1][2] :
+
+
+
+
+
+
+
+
+
 
 
 
