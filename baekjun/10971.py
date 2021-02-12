@@ -34,12 +34,60 @@ N과 비용 행렬이 주어졌을 때, 가장 적은 비용을 들이는 외판
 35
 
 '''
-N = int(input())
-W= []
 
-path = [False] * N
-for i in range(N):
+N =int(input())
+
+path = []
+for i in range(N) :
     s = list(map(int,input().split()))
-    list.append(s)
+    path.append(s)
 
-for i in range(len(W)):
+visited = [0] * N
+
+from itertools import permutations
+
+P = []
+for i in range(N):
+    P.append(i)
+
+how = list(permutations(P,N))
+cnt = 0
+for i in how :
+    for j in range(len(i)) :
+        a = i[j]
+        b = i[j+1]
+        if path[a][b] != 0 :
+
+
+###
+
+# 10971 외판원 순회 2
+import sys
+
+# dfs
+def dfs(start,cur,cost):
+    global matrix, visit, minCost
+
+    if start == cur and visit.count(False) == 0:
+        minCost = min(minCost, cost)
+
+    for i in range(n):
+        if not matrix[cur][i] == 0 and not visit[i]:
+            visit[i] = True
+            dfs(start,i,cost+matrix[cur][i])
+            visit[i] = False
+
+# main
+n = int(input())
+
+matrix = []
+for _ in range(n):
+    matrix.append([int(x) for x in sys.stdin.readline().split()])
+
+# dfs
+minCost = float('inf')
+visit = [False for _ in range(n)]
+dfs(0,0,0)
+
+print(minCost)
+
