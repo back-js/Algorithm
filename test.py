@@ -1,5 +1,4 @@
-s = 'asdasgaw'
-def sort_string(a):
-    return ''.join(sorted(a))
-
-print(sort_string(s))
+st = ''
+st += 'aaa'
+st += 'bbbb'
+print(st)

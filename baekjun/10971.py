@@ -32,34 +32,8 @@ N과 비용 행렬이 주어졌을 때, 가장 적은 비용을 들이는 외판
 8 8 9 0
 예제 출력 1
 35
-
+0 1 0 
 '''
-
-N =int(input())
-
-path = []
-for i in range(N) :
-    s = list(map(int,input().split()))
-    path.append(s)
-
-visited = [0] * N
-
-from itertools import permutations
-
-P = []
-for i in range(N):
-    P.append(i)
-
-how = list(permutations(P,N))
-cnt = 0
-for i in how :
-    for j in range(len(i)) :
-        a = i[j]
-        b = i[j+1]
-        if path[a][b] != 0 :
-
-
-###
 
 # 10971 외판원 순회 2
 import sys
@@ -72,9 +46,10 @@ def dfs(start,cur,cost):
         minCost = min(minCost, cost)
 
     for i in range(n):
-        if not matrix[cur][i] == 0 and not visit[i]:
+        if not matrix[cur][i] == 0 and visit[i]==False:
             visit[i] = True
             dfs(start,i,cost+matrix[cur][i])
+ 
             visit[i] = False
 
 # main
