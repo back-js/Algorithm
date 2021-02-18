@@ -1,4 +1,4 @@
-st = ''
-st += 'aaa'
-st += 'bbbb'
-print(st)
+import itertools
+s = itertools.product([1,2], repeat=2)
+print(sum(list(s)[1]))
+
