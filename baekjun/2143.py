@@ -33,18 +33,34 @@ T(=5) = A[1] + B[1] + B[2]
 7
 
 '''
-T = int(input())
 
-a = int(input())
-A = list(map(int,input().split()))
+import sys
+from _collections import defaultdict
 
-b = int(input())
-B = list(map(int,input().split()))
-A.sort()
-B.sort()
-cnt = 0
+T = int(sys.stdin.readline())
 
-from itertools import combinations
-for i in range(1,a+1):
-    s = list(combinations(A,i))
+a = int(sys.stdin.readline())
+listA = list(map(int, sys.stdin.readline().split()))
+b = int(sys.stdin.readline())
+listB = list(map(int, sys.stdin.readline().split()))
 
+dictA = {}
+
+ans = 0
+
+for i in range(a):
+    for j in range(i, a, 1):
+        if sum(listA[i:j+1]) in dictA :
+            dictA[sum(listA[i:j+1])] += 1
+        else :
+            dictA[sum(listA[i:j+1])] = 1
+print(dictA)
+
+for i in range(b):
+    for j in range(i, b, 1):
+        if T - sum(listB[i:j+1]) in dictA:
+            ans += dictA[T - sum(listB[i:j+1])]
+        else :
+            pass
+
+print(ans)

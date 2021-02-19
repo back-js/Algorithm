@@ -1,5 +1,7 @@
-A = [ 1,5,3,6]
-a = len(A)
-for i in range(a):
-    for j in range(i, a, 1):
-        print(A[i:j+1])
+
+dp = [1,3]
+
+for i in range(2,10):
+    s = dp[i-2] +dp[i-1] + 1
+    dp.append(s)
+print(dp)
