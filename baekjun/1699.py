@@ -15,40 +15,15 @@
 주어진 자연수를 제곱수의 합으로 나타낼 때에 그 제곱수 항의 최소 개수를 출력한다.
 '''
 
-
 N = int(input())
-S = []
-start = 1
-while True:
-    square = start**2
-    if square > 100000 :
-        break
-    S.append(square)
-    start +=1
 
-last = []
-while True:
-    if N == 0 :
-        break
+from math import sqrt
+cnt = 0
+while N != 0:
+    N = N - int(sqrt(N))**2
+    cnt += 1
 
-    if S[-1] > N :
-        S.pop()
-    else :
-        last.append(S[-1])
-        N = N - S[-1]
-
-print(len(last))
-
-n = int(input())
-dp = [0 for i in range(n + 1)]
-square = [i * i for i in range(1, 317)] 1 4 9 16 25
-for i in range(1, n + 1): 1 2 3 4 5 6 ... 11
-    s = [] 0
-    for j in square:
-        if j > i:
-            break
-        s.append(dp[i - j])
-    dp[i] = min(s) + 1
-print(dp[n])
+print(cnt)
+    
 
 

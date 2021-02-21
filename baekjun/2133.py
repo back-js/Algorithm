@@ -1,9 +1,15 @@
 
 N= int(input())
 
-2 - 3
-4 - (2) *3 + 2
-6-  (4) * 3 +
-if N % 2 == 0 :
-    return 0
-else :
+dp = [0] * 31
+dp[2] = 3
+for i in range(3,31) :
+    k = i
+    if i % 2 == 0  :
+        s = 2 + dp[i-2] * 3
+        while i > 2 :
+            i -= 2
+            s += dp[i-2] * 2
+        dp[k] = s
+
+print(dp[N])
