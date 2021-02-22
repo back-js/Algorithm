@@ -1,2 +1,2 @@
-from math import sqrt
-print(int(sqrt(5))**2)
+puzzle = [list(map(int,input().split())) for _ in range(3) ]
+print(puzzle)

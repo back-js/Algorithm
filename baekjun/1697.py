@@ -32,7 +32,7 @@ while True:
     dx = [+1,-1,x]
     for i in range(3):
         nx = x + dx[i]
-        if 0<= nx <= 100000:
+        if 0 <= nx <= 100000:
             if visited[nx] == 0 :
                 visited[nx] = visited[x]+1
                 queue.append(nx)
