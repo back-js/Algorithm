@@ -66,47 +66,47 @@ print(result)
 #####
 
 
-import sys
 from collections import deque
-n, m = map(int, sys.stdin.readline().split())
-maps = [[] for _ in range(n+1)]
+import sys
 
-# 각 도시의 연결여부와 무게제한을 저장하는 배열 생성
-for _ in range(m):
-    y, x, w = map(int, sys.stdin.readline().split())
-    maps[y].append((x,w))
-    maps[x].append((y,w))
-# 시작점, 끝점    
-start, end = map(int, sys.stdin.readline().split())
+input = sys.stdin.readline
 
-# 통과할 수 있는 무게의 최솟값 / 최댓값을 지정한다. 문제에서 정해져 있다.
-_min, _max = 1, 1000000000
+def bfs(x, th):
+    q = deque()
+    c = [0 for _ in range(n)]
+    q.append(x)
+    c[x] = 1
+    while q:
+        x = q.pop()
+        for nx, w in a[x]:
+            if c[nx] == 0 and w >= th:
+                c[nx] = 1
+                q.append(nx)
 
-def bfs(c):
-    queue = deque()
-    queue.append(start)
-    visited = set()
-    visited.add(start)
-    result = []
-    while queue:
-        y = queue.popleft()
-        for x, w in maps[y]:
-            # 갈 수 있는 곳이면서 무게 제한에 걸리지 않을 경우
-            if x not in visited and w >= c:
-                visited.add(x)
-                queue.append(x)
-    # 도착지점을 방문할 수 있는 경우면 True, 아니면 False 반환
-    return True if end in visited else False
-
-# 이분탐색으로 최댓값을 찾는다.
-result = _min
-while _min <= _max:
-    mid = (_min + _max) // 2
-    # 해당 무게로 start -> end까지 도착이 가능한 경우
-    # 값을 저장하고, 최댓값을 구하기 위해 _min 값을 올린다.
-    if bfs(mid):
-        result = mid
-        _min = mid + 1
+    if c[y-1] == 1:
+        return 1
     else:
-        _max = mid - 1
-print(result)
+        return 0
+
+n, m = map(int, input().split())
+a = [[] for _ in range(n)]
+
+for _ in range(m):
+    x, y, w = map(int, input().split())
+    a[x-1].append([y-1, w])
+    a[y-1].append([x-1, w])
+
+x, y = map(int, input().split())
+
+left, right = 1, 0
+for i in a[y-1]:
+    right = max(right, i[1])
+
+while left <= right:
+    mid = (left + right) // 2
+    if bfs(x-1, mid):
+        ans = mid
+        left = mid + 1
+    else:
+        right = mid -1
+print(ans)
