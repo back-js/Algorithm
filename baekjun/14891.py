@@ -42,27 +42,40 @@
 1 -1
 예제 출력 3 
 6
+
+2 - 오른쪽
+6 - 왼쪽
 """
 from collections import deque
 
-
-wheel = []
+wheel = [[0]]
 for i in range(4) :
-    s = deque(list(map(int,input())))
+    s = list(map(int,input()))
     wheel.append(s)
-
 n = int(input())
 
-number = deque()
-for i in range(n):
-    s = list(map(int,input().split(' ')))
-    number.append(s)
+w, c = map(int,input()) # 회전 번호, 방향
+yes = []
+if w == 1 :
+    if wheel[1][2] != wheel[2][6] :
+        yes.append(2)
+    if wheel[2][2] != wheel[3][6] :
+        yes.append(3)
+    if wheel[3][2] != wheel[4][2] :
+        yes.append(4)
 
-while number :
-    s = number.popleft()
-    a , b = s[0], s[1]
-    a -= 1
-    if wheel[a][6] != wheel[a+1][2] :
+elif w == 2 :
+    if wheel[2][]
+
+
+def Rotation(s,c):
+    if c == 1 :
+        p = s.pop(-1)
+        s.insert(0,p)
+    elif c==-1:
+        p = s.pop(0)
+        s.append(p)
+
 
 
 
