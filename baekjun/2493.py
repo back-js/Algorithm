@@ -36,11 +36,17 @@ N은 1 이상 500,000 이하이다. 둘째 줄에는 N개의 탑들의 높이가
 N = int(input())
 top = list(map(int,input().split()))
 stack = []
+ans = []
 
 for i in range(N) :
     while stack :
         if stack[-1][1] > top[i] :
-            result.append(stack[-1][0])
+            ans.append(stack[-1][0]+ 1)
+            break
+        stack.pop()
+    if not stack :
+        ans.append(0)
+    
+    stack.append([i,top[i]])
 
-
-    stack.append((i,top[i]))
+print(ans)
