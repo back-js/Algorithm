@@ -1,8 +1,3 @@
-N,M, = map(int,input().split())
-
-b = list(map(int,input().split()))
-b.insert(0,0)
-
-visited = [0] * 10000
-
-for i in range(n):
+a = [1,2,3,4,1]
+aaa= sorted(a)
+print(aaa)
