@@ -54,35 +54,7 @@ board = []
 for i in range(N) :
     s = str(input())
     board.append(s)
-
-board_str = ''
-black = 0
-white = 0
-minsum = 10000000
-
-for i in range(M-7):
-    new_board = []
-    for j in range(N-7):
-        for k in range(8):
-            new_board.append(board[j+k][i:i+8])
-        if new_board[0][0] == 'B' :
-            for a in range(8):
-                for b in range(8):
-
-
-
-        print(board_str)
-        white += board_str.count('W') - 32
-        black += board_str.count('B') - 32
-        print(white,black)
-        if white < 0 or black < 0 :
-            if white < black :
-                minsum = min(minsum,abs(white))
-            elif black < white :
-                minsum = min(minsum,abs(black))
-    
-        board_str = ''
-        black = 0
-        white = 0
-
-print(minsum)
+new_board = []
+for j in range(M-7) :
+    for i in range(N-7) :
+        board[i][j:j+8]
