@@ -51,10 +51,38 @@ WWWWWWWWWWBWB
 N,M = map(int,input().split())
 
 board = []
+
+def change(array) :
+    cnt = 0
+
+    if array[0][0] == 'W' :
+        for i in range(8) :
+            for j in range(8) :
+                if (i+j) % 2 == 0 and array[i][j] != 'W' :
+                    cnt += 1
+                if (i+j) % 2 != 0 and array[i][j] != 'B' :
+                    cnt += 1
+
+    elif array[0][0] == 'B' :
+        for i in range(8) :
+            for j in range(8) :
+                if (i+j) % 2 == 0 and array[i][j] != 'B' :
+                    cnt += 1
+                if (i+j) % 2 != 0 and array[i][j] != 'W' :
+                    cnt += 1
+    return cnt
+
 for i in range(N) :
     s = str(input())
     board.append(s)
 new_board = []
-for j in range(M-7) :
-    for i in range(N-7) :
-        board[i][j:j+8]
+result = []
+
+for i in range(N-7) :
+    board2 = board[i:i+8]
+    for j in range(M-7) :
+        for k in range(8):
+            new_board.append(board2[k][j:j+8])
+        result.append(change(new_board))
+        new_board = []
+print(min(result))
