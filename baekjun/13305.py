@@ -50,4 +50,19 @@
 city = int(input())
 distance = list(map(int,input().split()))
 price = list(map(int,input().split()))
+result = 0
+
+for i in range(len(price)):
+    start = price[i]
+    j = i
+    while True:
+        j += 1
+        if start <= price[j] :
+            continue
+        else :
+            j -= 1
+            break
+
+    if j != i :
+        result += sum(distance[i:j+1]) * price[i]
 
