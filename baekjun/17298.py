@@ -1,23 +1,4 @@
-from collections import deque
-n = int(input())
-array = deque(list(map(int,input().split())))
-result = []
 
-while len(array) > 0 :
-    a = array.popleft()
-    if len(array) > 0 :
-        for i in range(len(array)):
-            if array[i] > a :
-                result.append(str(array[i]))
-                break
-            if i == len(array)-1 :
-                result.append(str(-1))
-    else :
-        result.append(str(-1))
-
-print(" ".join(result))
-
-####
 
 n = int(input())
 nums = list(map(int, input().split()))

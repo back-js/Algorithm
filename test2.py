@@ -1,2 +1,5 @@
-a = [1,2,3]
-print(sum(a[0:2]))
+stack=[1,2,3,4]
+
+s = stack.pop()
+stack.insert(0,s)
+print(stack)
