@@ -1,5 +1,7 @@
-stack=[1,2,3,4]
+import sys
 
-s = stack.pop()
-stack.insert(0,s)
-print(stack)
+
+s=  sys.stdin.readline().rstrip()[1:-1].split(',')
+ss = list(map(int, s))
+print(type(ss))
+print(ss)
