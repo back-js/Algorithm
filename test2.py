@@ -1,4 +1,3 @@
-line = "2016-09-15 21:00:00.966 0.381s"
-a,b,c = line.split(' ')
-k = b.split(':')
-print(k)
+a = [1,0,3,4]
+m = min(i for i in a if i > 0)
+print(m)
